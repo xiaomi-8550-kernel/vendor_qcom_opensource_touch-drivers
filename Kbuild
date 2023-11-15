@@ -193,6 +193,26 @@ ifeq ($(CONFIG_TOUCHSCREEN_GOODIX_BRL), y)
 	obj-$(CONFIG_MSM_TOUCH) += goodix_ts.o
 endif
 
+ifeq ($(CONFIG_TOUCHSCREEN_GOODIX_BRL_9916), y)
+	LINUX_INC += -include $(TOUCH_ROOT)/goodix_berlin_driver_9916/goodix_ts_core.h
+	LINUX_INC += -include $(TOUCH_ROOT)/goodix_berlin_driver_9916/mi_disp_notifier.h
+
+	goodix_ts-y := \
+		 ./goodix_berlin_driver_9916/goodix_ts_core.o \
+		 ./goodix_berlin_driver_9916/goodix_brl_hw.o \
+		 ./goodix_berlin_driver_9916/goodix_cfg_bin.o \
+		 ./goodix_berlin_driver_9916/goodix_ts_utils.o \
+		 ./goodix_berlin_driver_9916/goodix_brl_fwupdate.o \
+		 ./goodix_berlin_driver_9916/goodix_ts_tools.o \
+		 ./goodix_berlin_driver_9916/goodix_ts_gesture.o \
+		 ./goodix_berlin_driver_9916/goodix_ts_inspect.o \
+		 ./goodix_berlin_driver_9916/goodix_brl_spi.o \
+		 ./goodix_berlin_driver_9916/goodix_brl_i2c.o \
+		 ./goodix_berlin_driver_9916/mi_disp_notifier.o
+
+	obj-$(CONFIG_MSM_TOUCH) += goodix_ts.o
+endif
+
 ifeq ($(CONFIG_TOUCHSCREEN_ATMEL_MXT), y)
 
 	atmel_mxt_ts-y := \
