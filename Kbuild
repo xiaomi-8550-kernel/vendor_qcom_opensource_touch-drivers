@@ -205,6 +205,7 @@ ifeq ($(CONFIG_TOUCHSCREEN_GOODIX_BRL_9916), y)
 		 ./goodix_berlin_driver_9916/goodix_cfg_bin.o \
 		 ./goodix_berlin_driver_9916/goodix_ts_utils.o \
 		 ./goodix_berlin_driver_9916/goodix_brl_fwupdate.o \
+		 ./goodix_berlin_driver_9916/goodix_brl_normalize_coeffi.o \
 		 ./goodix_berlin_driver_9916/goodix_ts_tools.o \
 		 ./goodix_berlin_driver_9916/goodix_ts_gesture.o \
 		 ./goodix_berlin_driver_9916/goodix_ts_inspect.o \
