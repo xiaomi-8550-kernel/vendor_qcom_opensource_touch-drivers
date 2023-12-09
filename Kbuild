@@ -194,8 +194,10 @@ ifeq ($(CONFIG_TOUCHSCREEN_GOODIX_BRL), y)
 endif
 
 ifeq ($(CONFIG_TOUCHSCREEN_GOODIX_BRL_9916), y)
+	LINUX_INC += -include $(TOUCH_ROOT)/goodix_berlin_driver_9916/goodix_brl_normalize_coeffi.h
 	LINUX_INC += -include $(TOUCH_ROOT)/goodix_berlin_driver_9916/goodix_ts_core.h
 	LINUX_INC += -include $(TOUCH_ROOT)/goodix_berlin_driver_9916/mi_disp_notifier.h
+	LINUX_INC += -include $(TOUCH_ROOT)/goodix_berlin_driver_9916/touch_trace.h
 
 	goodix_ts-y := \
 		 ./goodix_berlin_driver_9916/goodix_ts_core.o \
