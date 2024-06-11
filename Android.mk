@@ -164,38 +164,66 @@ else ifeq ($(TARGET_BOARD_PLATFORM), pineapple)
 
 else ifeq ($(TARGET_BOARD_PLATFORM), kalama)
 
-       ###########################################################
-       include $(CLEAR_VARS)
-       LOCAL_SRC_FILES   := $(wildcard $(LOCAL_PATH)/**/*) $(wildcard $(LOCAL_PATH)/*)
-       LOCAL_MODULE              := nt36xxx-i2c.ko
-       LOCAL_MODULE_KBUILD_NAME  := nt36xxx-i2c.ko
-       LOCAL_MODULE_TAGS         := optional
-       #LOCAL_MODULE_DEBUG_ENABLE := true
-       LOCAL_MODULE_PATH         := $(KERNEL_MODULES_OUT)
-       include $(DLKM_DIR)/Build_external_kernelmodule.mk
-       ###########################################################
+       ifneq (, $(filter $(word 2,$(subst _, ,$(TARGET_PRODUCT))), fuxi ishtar nuwa))
 
-       ###########################################################
-       include $(CLEAR_VARS)
-       LOCAL_SRC_FILES   := $(wildcard $(LOCAL_PATH)/**/*) $(wildcard $(LOCAL_PATH)/*)
-       LOCAL_MODULE              := goodix_ts.ko
-       LOCAL_MODULE_KBUILD_NAME  := goodix_ts.ko
-       LOCAL_MODULE_TAGS         := optional
-       #LOCAL_MODULE_DEBUG_ENABLE := true
-       LOCAL_MODULE_PATH         := $(KERNEL_MODULES_OUT)
-       include $(DLKM_DIR)/Build_external_kernelmodule.mk
-       ###########################################################
+              ###########################################################
+              include $(CLEAR_VARS)
+              LOCAL_SRC_FILES   := $(wildcard $(LOCAL_PATH)/**/*) $(wildcard $(LOCAL_PATH)/*)
+              LOCAL_MODULE              := fts_touch_spi.ko
+              LOCAL_MODULE_KBUILD_NAME  := fts_touch_spi.ko
+              LOCAL_MODULE_TAGS         := optional
+              #LOCAL_MODULE_DEBUG_ENABLE := true
+              LOCAL_MODULE_PATH         := $(KERNEL_MODULES_OUT)
+              include $(DLKM_DIR)/Build_external_kernelmodule.mk
+              ###########################################################
 
-       ###########################################################
-       include $(CLEAR_VARS)
-       LOCAL_SRC_FILES   := $(wildcard $(LOCAL_PATH)/**/*) $(wildcard $(LOCAL_PATH)/*)
-       LOCAL_MODULE              := atmel_mxt_ts.ko
-       LOCAL_MODULE_KBUILD_NAME  := atmel_mxt_ts.ko
-       LOCAL_MODULE_TAGS         := optional
-       #LOCAL_MODULE_DEBUG_ENABLE := true
-       LOCAL_MODULE_PATH         := $(KERNEL_MODULES_OUT)
-       include $(DLKM_DIR)/Build_external_kernelmodule.mk
-       ###########################################################
+              ###########################################################
+              include $(CLEAR_VARS)
+              LOCAL_SRC_FILES   := $(wildcard $(LOCAL_PATH)/**/*) $(wildcard $(LOCAL_PATH)/*)
+              LOCAL_MODULE              := xiaomi_touch.ko
+              LOCAL_MODULE_KBUILD_NAME  := xiaomi_touch.ko
+              LOCAL_MODULE_TAGS         := optional
+              #LOCAL_MODULE_DEBUG_ENABLE := true
+              LOCAL_MODULE_PATH         := $(KERNEL_MODULES_OUT)
+              include $(DLKM_DIR)/Build_external_kernelmodule.mk
+              ###########################################################
+
+       else
+
+              ###########################################################
+              include $(CLEAR_VARS)
+              LOCAL_SRC_FILES   := $(wildcard $(LOCAL_PATH)/**/*) $(wildcard $(LOCAL_PATH)/*)
+              LOCAL_MODULE              := nt36xxx-i2c.ko
+              LOCAL_MODULE_KBUILD_NAME  := nt36xxx-i2c.ko
+              LOCAL_MODULE_TAGS         := optional
+              #LOCAL_MODULE_DEBUG_ENABLE := true
+              LOCAL_MODULE_PATH         := $(KERNEL_MODULES_OUT)
+              include $(DLKM_DIR)/Build_external_kernelmodule.mk
+              ###########################################################
+
+              ###########################################################
+              include $(CLEAR_VARS)
+              LOCAL_SRC_FILES   := $(wildcard $(LOCAL_PATH)/**/*) $(wildcard $(LOCAL_PATH)/*)
+              LOCAL_MODULE              := goodix_ts.ko
+              LOCAL_MODULE_KBUILD_NAME  := goodix_ts.ko
+              LOCAL_MODULE_TAGS         := optional
+              #LOCAL_MODULE_DEBUG_ENABLE := true
+              LOCAL_MODULE_PATH         := $(KERNEL_MODULES_OUT)
+              include $(DLKM_DIR)/Build_external_kernelmodule.mk
+              ###########################################################
+
+              ###########################################################
+              include $(CLEAR_VARS)
+              LOCAL_SRC_FILES   := $(wildcard $(LOCAL_PATH)/**/*) $(wildcard $(LOCAL_PATH)/*)
+              LOCAL_MODULE              := atmel_mxt_ts.ko
+              LOCAL_MODULE_KBUILD_NAME  := atmel_mxt_ts.ko
+              LOCAL_MODULE_TAGS         := optional
+              #LOCAL_MODULE_DEBUG_ENABLE := true
+              LOCAL_MODULE_PATH         := $(KERNEL_MODULES_OUT)
+              include $(DLKM_DIR)/Build_external_kernelmodule.mk
+              ###########################################################
+
+       endif
 
 else ifeq ($(TARGET_BOARD_PLATFORM), blair)
 
