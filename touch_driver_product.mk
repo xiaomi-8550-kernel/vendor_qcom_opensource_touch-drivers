@@ -19,9 +19,14 @@ ifeq ($(TOUCH_DLKM_ENABLE),  true)
                         $(KERNEL_MODULES_OUT)/goodix_ts.ko \
                         $(KERNEL_MODULES_OUT)/atmel_mxt_ts.ko
         else ifeq ($(TARGET_BOARD_PLATFORM), kalama)
-                PRODUCT_PACKAGES += $(KERNEL_MODULES_OUT)/nt36xxx-i2c.ko \
-                        $(KERNEL_MODULES_OUT)/goodix_ts.ko \
-                        $(KERNEL_MODULES_OUT)/atmel_mxt_ts.ko
+                ifneq (, $(filter $(word 2,$(subst _, ,$(TARGET_PRODUCT))), fuxi ishtar nuwa))
+                        PRODUCT_PACKAGES += $(KERNEL_MODULES_OUT)/fts_touch_spi.ko \
+                                $(KERNEL_MODULES_OUT)/xiaomi_touch.ko
+                else
+                        PRODUCT_PACKAGES += $(KERNEL_MODULES_OUT)/nt36xxx-i2c.ko \
+                                $(KERNEL_MODULES_OUT)/goodix_ts.ko \
+                                $(KERNEL_MODULES_OUT)/atmel_mxt_ts.ko
+                endif
         else ifeq ($(TARGET_BOARD_PLATFORM), blair)
                 PRODUCT_PACKAGES += $(KERNEL_MODULES_OUT)/focaltech_fts.ko \
                         $(KERNEL_MODULES_OUT)/nt36xxx-i2c.ko \
