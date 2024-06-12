@@ -16,6 +16,9 @@ ifeq ($(CONFIG_ARCH_KALAMA), y)
 	else ifeq ($(CONFIG_TARGET_PRODUCT_NUWA), y)
 		include $(TOUCH_ROOT)/config/gki_nuwatouch.conf
 		LINUX_INC += -include $(TOUCH_ROOT)/config/gki_nuwatouchconf.h
+	else ifeq ($(CONFIG_TARGET_PRODUCT_VERMEER), y)
+		include $(TOUCH_ROOT)/config/gki_vermeertouch.conf
+		LINUX_INC += -include $(TOUCH_ROOT)/config/gki_vermeertouchconf.h
 	else
 		include $(TOUCH_ROOT)/config/gki_kalamatouch.conf
 		LINUX_INC += -include $(TOUCH_ROOT)/config/gki_kalamatouchconf.h

@@ -24,6 +24,9 @@ ifeq ($(TOUCH_DLKM_ENABLE),  true)
                                 ifneq (, $(filter $(word 2,$(subst _, ,$(TARGET_PRODUCT))), fuxi ishtar nuwa))
                                         BOARD_VENDOR_KERNEL_MODULES += $(KERNEL_MODULES_OUT)/fts_touch_spi.ko \
                                                 $(KERNEL_MODULES_OUT)/xiaomi_touch.ko
+                                else ifneq (, $(filter $(word 2,$(subst _, ,$(TARGET_PRODUCT))), vermeer))
+                                        BOARD_VENDOR_KERNEL_MODULES += $(KERNEL_MODULES_OUT)/goodix_ts.ko \
+                                                $(KERNEL_MODULES_OUT)/xiaomi_touch.ko
                                 else
                                         BOARD_VENDOR_KERNEL_MODULES += $(KERNEL_MODULES_OUT)/nt36xxx-i2c.ko \
                                                 $(KERNEL_MODULES_OUT)/goodix_ts.ko \
