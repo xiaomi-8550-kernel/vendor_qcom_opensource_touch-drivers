@@ -43,6 +43,8 @@
 #include <linux/spi/spi.h>
 #include "../qts/qts_core_common.h"
 
+#include "../xiaomi/xiaomi_touch.h"
+
 #define GOODIX_CORE_DRIVER_NAME			"goodix_ts"
 #define GOODIX_PEN_DRIVER_NAME			"goodix_ts,pen"
 #define GOODIX_CORE_DEVICE_NAME			"goodix_ts"
@@ -555,6 +557,12 @@ struct goodix_ts_core {
 #endif
 	bool qts_en;
 	struct mutex tui_transition_lock;
+
+	struct workqueue_struct *gesture_wq;
+	struct work_struct gesture_work;
+
+	bool in_gesture_mode;
+	bool nonui_enabled;
 };
 
 /* external module structures */
