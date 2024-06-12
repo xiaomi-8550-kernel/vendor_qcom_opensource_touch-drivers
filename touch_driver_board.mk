@@ -28,6 +28,13 @@ ifeq ($(TOUCH_DLKM_ENABLE),  true)
                                                 $(KERNEL_MODULES_OUT)/fts_touch_spi.ko
                                         BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD += $(KERNEL_MODULES_OUT)/xiaomi_touch.ko \
                                                 $(KERNEL_MODULES_OUT)/fts_touch_spi.ko
+                                else ifneq (, $(filter $(word 2,$(subst _, ,$(TARGET_PRODUCT))), vermeer))
+                                        BOARD_VENDOR_KERNEL_MODULES += $(KERNEL_MODULES_OUT)/xiaomi_touch.ko \
+                                                $(KERNEL_MODULES_OUT)/goodix_ts.ko
+                                        BOARD_VENDOR_RAMDISK_KERNEL_MODULES += $(KERNEL_MODULES_OUT)/xiaomi_touch.ko \
+                                                $(KERNEL_MODULES_OUT)/goodix_ts.ko
+                                        BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD += $(KERNEL_MODULES_OUT)/xiaomi_touch.ko \
+                                                $(KERNEL_MODULES_OUT)/goodix_ts.ko
                                 else
                                         BOARD_VENDOR_KERNEL_MODULES += $(KERNEL_MODULES_OUT)/nt36xxx-i2c.ko \
                                                 $(KERNEL_MODULES_OUT)/goodix_ts.ko \
