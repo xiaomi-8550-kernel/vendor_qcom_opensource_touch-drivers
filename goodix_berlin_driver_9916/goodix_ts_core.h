@@ -237,7 +237,6 @@ struct goodix_ic_info_misc { /* other data */
 	u32 esd_addr;
 	u32 auto_scan_cmd_addr;
 	u32 auto_scan_info_addr;
-	u16 normalize_k_version;
 };
 
 struct goodix_ic_info_other {
