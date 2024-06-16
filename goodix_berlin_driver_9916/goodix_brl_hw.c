@@ -313,6 +313,10 @@ static int brl_reset(struct goodix_ts_core *cd, int delay)
 	else
 		msleep(delay);
 
+#ifdef CONFIG_TARGET_PRODUCT_VERMEER
+	goodix_htc_enable(0);
+#endif
+
 	return brl_select_spi_mode(cd);
 }
 
