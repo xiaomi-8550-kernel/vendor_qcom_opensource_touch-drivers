@@ -3224,7 +3224,7 @@ static void goodix_set_gesture_work(struct work_struct *work)
 
 	mutex_lock(&core_data->core_mutex);
 
-	if (core_data->nonui_status == 2) {
+	if (core_data->nonui_status == 1 || core_data->nonui_status == 2) {
 		tmp = 0;
 	} else {
 		x = 0;
