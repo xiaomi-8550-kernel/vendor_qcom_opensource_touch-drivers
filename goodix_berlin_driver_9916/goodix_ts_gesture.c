@@ -319,7 +319,7 @@ int goodix_gesture_ist(struct goodix_ts_core *cd)
 		cd->fod_down_before_suspend = false;
 		// TODO: WTF is this?
 		if (((*(byte *)&cd->gesture_enabled >> 2 & 1) != 0) ||
-		    (cd->nonui_status == 2)) {
+		    ((cd->nonui_status == 1) || (cd->nonui_status == 2))) {
 			if (cd->fod_finger != false) {
 				ts_info("gesture fod up");
 				cd->fod_finger = false;
