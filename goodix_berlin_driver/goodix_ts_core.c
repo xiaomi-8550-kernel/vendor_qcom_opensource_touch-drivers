@@ -1983,6 +1983,7 @@ static void goodix_set_gesture_work(struct work_struct *work)
 	target_gesture_type = core_data->nonui_enabled ? 0 : core_data->gesture_type;
 
 	if (target_gesture_type == 0) {
+		disable_irq_wake(core_data->irq);
 		hw_ops->irq_enable(core_data, false);
 		hw_ops->gesture(core_data, 0);
 		goto exit;
@@ -2002,6 +2003,7 @@ static void goodix_set_gesture_work(struct work_struct *work)
 		ts_err("enter gesture mode");
 	}
 	hw_ops->irq_enable(core_data, true);
+	enable_irq_wake(core_data->irq);
 
 exit:
 	pm_relax(core_data->bus->dev);
