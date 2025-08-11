@@ -162,6 +162,17 @@ else ifeq ($(TARGET_BOARD_PLATFORM), pineapple)
        include $(DLKM_DIR)/Build_external_kernelmodule.mk
        ###########################################################
 
+       ###########################################################
+       include $(CLEAR_VARS)
+       LOCAL_SRC_FILES   := $(wildcard $(LOCAL_PATH)/**/*) $(wildcard $(LOCAL_PATH)/*)
+       LOCAL_MODULE              := qts.ko
+       LOCAL_MODULE_KBUILD_NAME  := qts.ko
+       LOCAL_MODULE_TAGS         := optional
+       #LOCAL_MODULE_DEBUG_ENABLE := true
+       LOCAL_MODULE_PATH         := $(KERNEL_MODULES_OUT)
+       include $(DLKM_DIR)/Build_external_kernelmodule.mk
+       ###########################################################
+
 else ifeq ($(TARGET_BOARD_PLATFORM), kalama)
 
        ifneq (, $(filter $(word 2,$(subst _, ,$(TARGET_PRODUCT))), fuxi ishtar nuwa))
@@ -249,6 +260,17 @@ else ifeq ($(TARGET_BOARD_PLATFORM), kalama)
 
        endif
 
+       ###########################################################
+       include $(CLEAR_VARS)
+       LOCAL_SRC_FILES   := $(wildcard $(LOCAL_PATH)/**/*) $(wildcard $(LOCAL_PATH)/*)
+       LOCAL_MODULE              := qts.ko
+       LOCAL_MODULE_KBUILD_NAME  := qts.ko
+       LOCAL_MODULE_TAGS         := optional
+       #LOCAL_MODULE_DEBUG_ENABLE := true
+       LOCAL_MODULE_PATH         := $(KERNEL_MODULES_OUT)
+       include $(DLKM_DIR)/Build_external_kernelmodule.mk
+       ###########################################################
+
 else ifeq ($(TARGET_BOARD_PLATFORM), blair)
 
        ###########################################################
@@ -295,6 +317,17 @@ else ifeq ($(TARGET_BOARD_PLATFORM), blair)
        include $(DLKM_DIR)/Build_external_kernelmodule.mk
        ###########################################################
 
+       ###########################################################
+       include $(CLEAR_VARS)
+       LOCAL_SRC_FILES   := $(wildcard $(LOCAL_PATH)/**/*) $(wildcard $(LOCAL_PATH)/*)
+       LOCAL_MODULE              := qts.ko
+       LOCAL_MODULE_KBUILD_NAME  := qts.ko
+       LOCAL_MODULE_TAGS         := optional
+       #LOCAL_MODULE_DEBUG_ENABLE := true
+       LOCAL_MODULE_PATH         := $(KERNEL_MODULES_OUT)
+       include $(DLKM_DIR)/Build_external_kernelmodule.mk
+       ###########################################################
+
 else ifeq ($(TARGET_BOARD_PLATFORM), crow)
 
        ###########################################################
@@ -302,6 +335,17 @@ else ifeq ($(TARGET_BOARD_PLATFORM), crow)
        LOCAL_SRC_FILES   := $(wildcard $(LOCAL_PATH)/**/*) $(wildcard $(LOCAL_PATH)/*)
        LOCAL_MODULE              := goodix_ts.ko
        LOCAL_MODULE_KBUILD_NAME  := goodix_ts.ko
+       LOCAL_MODULE_TAGS         := optional
+       #LOCAL_MODULE_DEBUG_ENABLE := true
+       LOCAL_MODULE_PATH         := $(KERNEL_MODULES_OUT)
+       include $(DLKM_DIR)/Build_external_kernelmodule.mk
+       ###########################################################
+
+       ###########################################################
+       include $(CLEAR_VARS)
+       LOCAL_SRC_FILES   := $(wildcard $(LOCAL_PATH)/**/*) $(wildcard $(LOCAL_PATH)/*)
+       LOCAL_MODULE              := qts.ko
+       LOCAL_MODULE_KBUILD_NAME  := qts.ko
        LOCAL_MODULE_TAGS         := optional
        #LOCAL_MODULE_DEBUG_ENABLE := true
        LOCAL_MODULE_PATH         := $(KERNEL_MODULES_OUT)
@@ -380,6 +424,17 @@ else ifeq ($(TARGET_BOARD_PLATFORM), pitti)
        include $(DLKM_DIR)/Build_external_kernelmodule.mk
        ###########################################################
 
+       ###########################################################
+       include $(CLEAR_VARS)
+       LOCAL_SRC_FILES   := $(wildcard $(LOCAL_PATH)/**/*) $(wildcard $(LOCAL_PATH)/*)
+       LOCAL_MODULE              := qts.ko
+       LOCAL_MODULE_KBUILD_NAME  := qts.ko
+       LOCAL_MODULE_TAGS         := optional
+       #LOCAL_MODULE_DEBUG_ENABLE := true
+       LOCAL_MODULE_PATH         := $(KERNEL_MODULES_OUT)
+       include $(DLKM_DIR)/Build_external_kernelmodule.mk
+       ###########################################################
+
 else ifeq ($(TARGET_BOARD_PLATFORM), volcano)
 
        ###########################################################
@@ -404,6 +459,17 @@ else ifeq ($(TARGET_BOARD_PLATFORM), volcano)
        include $(DLKM_DIR)/Build_external_kernelmodule.mk
        ###########################################################
 
+       ###########################################################
+       include $(CLEAR_VARS)
+       LOCAL_SRC_FILES   := $(wildcard $(LOCAL_PATH)/**/*) $(wildcard $(LOCAL_PATH)/*)
+       LOCAL_MODULE              := qts.ko
+       LOCAL_MODULE_KBUILD_NAME  := qts.ko
+       LOCAL_MODULE_TAGS         := optional
+       #LOCAL_MODULE_DEBUG_ENABLE := true
+       LOCAL_MODULE_PATH         := $(KERNEL_MODULES_OUT)
+       include $(DLKM_DIR)/Build_external_kernelmodule.mk
+       ###########################################################
+
 else
 
        ###########################################################
@@ -422,6 +488,17 @@ else
        LOCAL_SRC_FILES   := $(wildcard $(LOCAL_PATH)/**/*) $(wildcard $(LOCAL_PATH)/*)
        LOCAL_MODULE              := goodix_ts.ko
        LOCAL_MODULE_KBUILD_NAME  := goodix_ts.ko
+       LOCAL_MODULE_TAGS         := optional
+       #LOCAL_MODULE_DEBUG_ENABLE := true
+       LOCAL_MODULE_PATH         := $(KERNEL_MODULES_OUT)
+       include $(DLKM_DIR)/Build_external_kernelmodule.mk
+       ###########################################################
+
+       ###########################################################
+       include $(CLEAR_VARS)
+       LOCAL_SRC_FILES   := $(wildcard $(LOCAL_PATH)/**/*) $(wildcard $(LOCAL_PATH)/*)
+       LOCAL_MODULE              := qts.ko
+       LOCAL_MODULE_KBUILD_NAME  := qts.ko
        LOCAL_MODULE_TAGS         := optional
        #LOCAL_MODULE_DEBUG_ENABLE := true
        LOCAL_MODULE_PATH         := $(KERNEL_MODULES_OUT)
