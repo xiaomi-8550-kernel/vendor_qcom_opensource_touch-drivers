@@ -477,7 +477,7 @@ struct goodix_ts_hw_ops {
 			struct ts_rawdata_info *info);
 	int (*set_coor_mode)(struct goodix_ts_core *cd);
 	int (*switch_report_rate)(struct goodix_ts_core *cd, bool high);
-	int (*switch_edge_filter)(struct goodix_ts_core *cd, bool high);
+	int (*set_edge_filter)(struct goodix_ts_core *cd);
 };
 
 /*
@@ -574,7 +574,6 @@ struct goodix_ts_core {
 
 	bool nonui_enabled;
 	bool high_report_rate;
-	bool edge_filter;
 };
 
 /* external module structures */

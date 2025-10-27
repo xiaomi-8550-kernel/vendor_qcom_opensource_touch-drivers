@@ -368,11 +368,10 @@ exit:
 
 #define GOODIX_GAME_CMD 0x17
 #define GOODIX_NORMAL_CMD	0x18
-static int brl_switch_edge_filter(struct goodix_ts_core *cd, bool enable)
+static int brl_set_edge_filter(struct goodix_ts_core *cd)
 {
 	struct goodix_ts_cmd cmd;
 	int ret = 0;
-	const char *mode = enable ? "game" : "normal";
 
 	/*
 	this is how the data for game cmd works
@@ -404,24 +403,16 @@ static int brl_switch_edge_filter(struct goodix_ts_core *cd, bool enable)
 	Bit 0 | Touch_Tap_Stability | value: 0
 	*/
 
-  if (enable) {
-		cmd.cmd = GOODIX_GAME_CMD;
-		cmd.len = 6;
-		cmd.data[0] = 0x00;
-		cmd.data[1] = 0x00;
-  } else {
-		cmd.cmd = GOODIX_NORMAL_CMD;
-		cmd.len = 6;
-		cmd.data[0] = 0x02;
-		cmd.data[1] = 0x80;
-	}
+	cmd.cmd = GOODIX_NORMAL_CMD;
+	cmd.len = 6;
+	cmd.data[0] = 0x02;
+	cmd.data[1] = 0x80;
 	ret = cd->hw_ops->send_cmd(cd, &cmd);
 	if (ret < 0) {
-			ts_err("edge filter: failed to send %s cmd", mode);
+			ts_err("edge filter: failed to send normal cmd");
 			goto exit;
 	}
-	ts_info("edge filter: %s mode", mode);
-	cd->edge_filter = enable;
+	ts_info("edge filter: normal mode");
 
 exit:
 	return ret;
@@ -1650,7 +1641,7 @@ static struct goodix_ts_hw_ops brl_hw_ops = {
 	.get_capacitance_data = brl_get_capacitance_data,
 	.set_coor_mode = brl_set_coor_mode,
 	.switch_report_rate = brl_switch_report_rate,
-	.switch_edge_filter = brl_switch_edge_filter,
+	.set_edge_filter = brl_set_edge_filter,
 };
 
 struct goodix_ts_hw_ops *goodix_get_hw_ops(void)

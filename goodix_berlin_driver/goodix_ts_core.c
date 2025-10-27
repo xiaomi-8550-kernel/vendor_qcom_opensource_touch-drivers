@@ -1952,11 +1952,7 @@ out:
 	if (core_data->high_report_rate) {
 		core_data->hw_ops->switch_report_rate(core_data, true);
 	}
-	if (core_data->edge_filter) {
-		core_data->hw_ops->switch_edge_filter(core_data, true);
-	} else {
-		core_data->hw_ops->switch_edge_filter(core_data, false);
-	}
+	core_data->hw_ops->set_edge_filter(core_data);
 	ts_info("Resume end");
 	return 0;
 }
@@ -2041,7 +2037,6 @@ static int goodix_set_cur_value(void *private, enum touch_mode mode, int value)
 		break;
 	case TOUCH_MODE_REPORT_RATE:
 		ts_core->hw_ops->switch_report_rate(ts_core, value);
-		ts_core->hw_ops->switch_edge_filter(ts_core, value);
 		goto exit;
 	default:
 		ts_err("handler got mode %d with value %d, not implemented",
